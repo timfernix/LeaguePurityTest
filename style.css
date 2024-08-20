@@ -1,0 +1,169 @@
+    /* Global styles */
+    @font-face {
+        font-family: myFont;
+        src: url(BeaufortRegular.ttf);
+       }
+      body {
+        font-family: myFont;
+        /*background-color: #feddc1; /* Warm beige background */
+        background-image: url('background.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        transition: background-color 0.5s; /* Smooth background color transition */
+        color: #FFFFFF;
+      }
+   
+      /* Container styles */
+      .container {
+        max-width: 1000px; /* Maximum width for large screens */
+        margin: 40px auto; /* Center the container */
+        padding: 20px;
+        background-color: rgba(43, 37, 41, 0.85); /* transparent white background */
+        border: 1px solid #ffd7be; /* Soft orange border */
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+      }
+  
+      /* List styles */
+      #list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      #list li {
+        padding: 10px;
+        border-bottom: 1px solid #ffc499; /* Soft orange border */   
+      }
+      #list li:last-child {
+        border-bottom: none;
+      }
+      #list li input[type="checkbox"] {
+        margin-right: 10px;
+      }
+  
+      /* Summary styles */
+      #summary-container {
+        margin-top: 20px;
+      }
+      #summary {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #8b9467; /* Earthy brown text */
+      }
+  
+      /* Image styles */
+      #image-container {
+        text-align: center;
+        margin: 20px;
+      }
+      #image {
+        max-width: 100%; /* Responsive image sizing */
+        height: auto;
+        margin: 0 auto; /* Center the image */
+        border: 1px solid #ffd7be; /* Soft orange border */
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+      }
+  
+      /* Button styles */
+      #show-results {
+        font-family: myFont;
+        background-color: #ffad72; /* Soft orange button */
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      #show-results:hover {
+        background-color: #ffa07a; /* Darker orange on hover */
+      }
+  
+      /* Download link styles */
+      #download-link {
+        font-family: myFont;
+        text-decoration: none;
+        color: #337ab7; /* Blue link */
+      }
+      #download-link:hover {
+        color: #23527c; /* Darker blue on hover */
+      }
+  
+      /* Footer styles */
+      #footer {
+        font-family: myFont;
+        margin-top: 20px;
+        text-align: center;
+        font-size: 14px;
+        color: #f8f8f8;
+      }
+      #footer a {
+        text-decoration: none;
+        color: #5190c7;
+      }
+      #footer a:hover {
+        color: #316796;
+      }
+      .image-select {
+        font-family: myFont;
+        margin: 10px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #4CAF50;
+        color: #fff;
+        cursor: pointer;
+        appearance: none; /* remove default select arrow */
+        -webkit-appearance: none;
+        -moz-appearance: none;
+  }
+  
+  .image-select:hover {
+    background-color: #3e8e41;
+  }
+  
+  .image-select option {
+    background-color: #fff;
+    color: #333;
+    padding: 10px;
+  }
+  
+  .image-select option:hover {
+    background-color: #f0f0f0;
+  }
+  .download-button {
+    background-color: #337ab7; /* Blue button background */
+    color: #fff; /* White text */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .download-button:hover {
+    background-color: #23527c; /* Darker blue on hover */
+  }
+  
+  .download-button[disabled] {
+    background-color: #ccc; /* Grey background when disabled */
+    color: #666; /* Dark grey text when disabled */
+    cursor: not-allowed;
+  }
+  .imageHead {
+    display: flex;
+    align-items: center;
+  }
+  
+  .imageHead img {
+    width: 50px; /* adjust the width to your liking */
+    height: 50px; /* adjust the height to your liking */
+    border-radius: 50%; /* makes the image round */
+    margin-right: 10px; /* adds space between the image and the headline */
+  }
+  .imageHead h1 {
+    display: inline-block; /* adds this property */
+    margin: 0; /* removes default margin */
+  }
