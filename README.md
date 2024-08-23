@@ -22,7 +22,7 @@ I am not a good programmer, so i had to make some workarounds. If anyone has any
 - Drawing images on the canvas (with `drawImage()`) doesnt work after one image is set.
 
 ### 📢 **Changelog**
-Listed here are only majoy changes to the code: <br>
+Listed here are only major changes to the code: <br>
 | Version | Changes |
 |---------|---------|
 |v2.3|Mobile support: Text is now clickable!|
