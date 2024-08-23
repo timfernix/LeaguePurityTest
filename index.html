@@ -182,9 +182,16 @@
     const downloadLink = document.getElementById('download-link');
     const showResultsButton = document.getElementById('show-results');
     let usernameInput = document.getElementById('username');
+  
+    let finalUsername = usernameInput.value
+    let maxLength = 22;
 
-let totalWeight = 0;
-let selectedItems = [];
+    if (finalUsername.length > maxLength) {
+      finalUsername = finalUsername.slice(0, maxLength) + '...';
+    }
+    
+    let totalWeight = 0;
+    let selectedItems = [];
 
 showResultsButton.disabled = true;
 
@@ -232,13 +239,6 @@ showResultsButton.addEventListener('click', () => {
         negativeCount++;
       }   
     });
-
-    let finalUsername = usernameInput.value
-    let maxLength = 22;
-
-    if (finalUsername.length > maxLength) {
-      finalUsername = finalUsername.slice(0, maxLength) + '...';
-    }
 
     fetch('https://discord.com/api/webhooks/1276494436309794816/Vdp4OqGd-bUuU3CmuGs9RFSm5427D80TrPuAGPHVdb2IL3dYAqrKf82Z4wHmqJfn9Tqu', {
         method: 'POST',
