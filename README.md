@@ -25,6 +25,7 @@ I am not a good programmer, so i had to make some workarounds. If anyone has any
 Listed here are only major changes to the code: <br>
 | Version | Changes |
 |---------|---------|
+|v2.5|Added basic balancing|
 |v2.4|Customization: Username input added|
 |v2.3|Mobile support: Text is now clickable!|
 |v2.2.2|Added metadata for OpenGraph|
