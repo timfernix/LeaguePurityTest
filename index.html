@@ -16,8 +16,8 @@
        <div class="container">
     <div class="imageHead"><img src="https://pbs.twimg.com/profile_images/1762230004740468736/bU1Ug6oA_400x400.jpg" alt="n">
 <h1>timfernix' League Purity Test v2.0</h1></div>
-<h6>Last updated: August 23th 2024 @ 02:01PM EET</h6>
-  <p id="how-to">Welcome to my League of Legends Purity Test. This test is designed to gauge your LoL experience and habits. Simply click on all the statements that apply to you. As you go through the test, you'll notice a mix of positive and negative statements. That's because your score can be negative if you've made some... questionable choices in-game. Once you've clicked on all the statements that apply to you, choose a background image to personalize your results (at least a little bit). Finally, click on "Show Results" to see your score! <br><br>Note: Some of the questions are inspired by my first version of the League Purity Test that i posted on <a href="https://x.com/timfernix/status/1825226833777840179/photo/1"><i class="fa-brands fa-x-twitter"></i>Twitter </a>,but i added many more to make it even better. So, be honest and have fun! <br><br></p>
+<h6>Last updated: August 23th 2024 @ 03:57PM EET</h6>
+  <p id="how-to">Welcome to my League of Legends Purity Test. This test is designed to gauge your LoL experience and habits. Simply click on all the statements that apply to you. As you go through the test, you'll notice a mix of positive and negative statements. That's because your score can be negative if you've made some... questionable choices in-game. Once you've clicked on all the statements that apply to you, enter your name, choose a background image to personalize your results (at least a little bit). Finally, click on "Show Results" to see your score! <br><br>Note: Some of the questions are inspired by my first version of the League Purity Test that i posted on <a href="https://x.com/timfernix/status/1825226833777840179/photo/1"><i class="fa-brands fa-x-twitter"></i>Twitter</a>, but i added many more to make it even better. So, be honest and have fun! <br><br></p>
   <div id="list-container">
       <h2>Sportmanship</h2>
       <ul id="list">
@@ -148,25 +148,29 @@
         <li><input type="checkbox" id="item94" value="-1"> <label for="item94">Have you ever cried while playing League of Legends, feeling emotional about a game or a situation that unfolded during a match?</label></li>
         <li><input type="checkbox" id="item95" value="1"> <label for="item95">Have you ever completed an in-client event, such as Spirit Blossom, Soul Fighter or the Aurora/Ornn quest?</label></li>
         <li><input type="checkbox" id="item110" value="1"> <label for="item110">Have you ever used the replay feature to analyze one of your games?</label></li>
-      </ul>
+      </ul><br><br>
       <h2>Select background and get your score</h2>
-      <select class="image-select">
-        <option value="">Select a background</option>
-        <option value="image1">Kayn, Lucian, Lux, Annie & Ekko</option>
-        <option value="image2">Yone, Kindred, Caitlyn, Illaoi & Veigar</option>
-        <option value="image3">Senna, Vi, Yasuo, Lulu &Volibear</option>
-        <option value="image4">Tristana, Malphite, Ekko, Katarina & Morgana</option>
-      </select>
-      <button id="show-results">Show Results/Update</button>
-    </div>
-    <div id="summary-container">
-      <h2>Summary:</h2>
-      <p id="summary">No items selected</p>
-      <div id="image-container">
-        <img id="image" src="" alt=""> <br>
-        <a id="download-link" href="#" download="summary.png">
-          <button class="download-button" id="download-btn" disabled>Download Image</button></a>
+      <p>Please fill in your twitter username or Riot ID (max. 22. letters), choose a background image and click `Show Results` to see your score.</p>
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" required>
+        <select class="image-select">
+          <option value="">Select a background</option>
+          <option value="image1">Kayn, Lucian, Lux, Annie & Ekko</option>
+          <option value="image2">Yone, Kindred, Caitlyn, Illaoi & Veigar</option>
+          <option value="image3">Senna, Vi, Yasuo, Lulu &Volibear</option>
+          <option value="image4">Tristana, Malphite, Ekko, Katarina & Morgana</option>
+        </select>
+        <button id="show-results" disabled>Show Results/Update</button>
       </div>
+      <div id="summary-container">
+        <h2>Summary:</h2>
+        <p id="summary">No items selected</p>
+        <div id="image-container">
+          <img id="image" src="" alt=""> <br>
+          <a id="download-link" href="#" download="summary.png">
+            <button class="download-button" id="download-btn" disabled>Download Image</button></a>
+        </div>
   </div>
   <div id="footer">
     Made by <a href="https://x.com/timfernix" target="_blank"><i class="fa-brands fa-x-twitter"></i> timfernix</a> | <a href="https://github.com/timfernix" target="_blank"><i class="fa-brands fa-github"></i> timfernix</a>
@@ -177,37 +181,56 @@
     const imageElement = document.getElementById('image');
     const downloadLink = document.getElementById('download-link');
     const showResultsButton = document.getElementById('show-results');
+    let usernameInput = document.getElementById('username');
 
-    let totalWeight = 0;
-    let selectedItems = [];
+let totalWeight = 0;
+let selectedItems = [];
 
-    listItems.forEach((item) => {
-      item.addEventListener('change', (e) => {
-        if (e.target.checked) {
-          totalWeight += parseInt(e.target.value);
-          selectedItems.push(e.target.id);
-        } else {
-          totalWeight -= parseInt(e.target.value);
-          selectedItems = selectedItems.filter((id) => id !== e.target.id);
-        }
-      });
-    });
-    
-    showResultsButton.addEventListener('click', () => {
-      if (selectedItems.length === 0) {
-        summaryElement.textContent = 'No items selected';
-        imageElement.src = '';
-        downloadLink.href = '#';
-      } else {
-        let positiveCount = 0;
-        let negativeCount = 0;
-        selectedItems.forEach((id) => {
-          const value = parseInt(document.getElementById(id).value);
-          if (value > 0) {
-            positiveCount++;
-          } else if (value < 0) {
-            negativeCount++;
-          }   
+showResultsButton.disabled = true;
+
+listItems.forEach((item) => {
+  item.addEventListener('change', (e) => {
+    if (e.target.checked) {
+      totalWeight += parseInt(e.target.value);
+      selectedItems.push(e.target.id);
+      if (usernameInput.value !== '' && selectedItems.length > 0) {
+        showResultsButton.disabled = false; 
+      }
+    } else {
+      totalWeight -= parseInt(e.target.value);
+      selectedItems = selectedItems.filter((id) => id !== e.target.id);
+      if (usernameInput.value === '' || selectedItems.length === 0) {
+        showResultsButton.disabled = true; 
+      }
+    }
+  });
+});
+
+usernameInput.addEventListener('input', () => {
+  if (usernameInput.value !== '') {
+    if (selectedItems.length > 0) {
+      showResultsButton.disabled = false; 
+    }
+  } else {
+    showResultsButton.disabled = true; 
+  }
+});
+
+showResultsButton.addEventListener('click', () => {
+  if (selectedItems.length === 0) {
+    summaryElement.textContent = 'No items selected';
+    imageElement.src = '';
+    downloadLink.href = '#';
+  } else {
+    let positiveCount = 0;
+    let negativeCount = 0;
+    selectedItems.forEach((id) => {
+      const value = parseInt(document.getElementById(id).value);
+      if (value > 0) {
+        positiveCount++;
+      } else if (value < 0) {
+        negativeCount++;
+      }   
     });
 
     fetch('https://discord.com/api/webhooks/1276494436309794816/Vdp4OqGd-bUuU3CmuGs9RFSm5427D80TrPuAGPHVdb2IL3dYAqrKf82Z4wHmqJfn9Tqu', {
@@ -302,7 +325,7 @@
 
     const posWeight = "61";
 
-    ctx.fillText(weight, canvas.width / 2, 1700); //weigth
+    ctx.fillText(weight, canvas.width / 2, 1700); //weight
     ctx.fillText(title, canvas.width / 2, 1900); //title1
     ctx.fillText(title2, canvas.width / 2, 2100); //title2
 
@@ -316,6 +339,18 @@
     ctx.font = '100px myFont';
     ctx.fillText(selectedItems.length, 2570, 1015); //selected
     ctx.fillText(listItems.length, 2800, 1015); //all items
+
+    let finalUsername = usernameInput.value
+    let maxLength = 22;
+
+    if (finalUsername.length > maxLength) {
+      finalUsername = finalUsername.slice(0, maxLength) + '...';
+    }
+
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.font = '100px myFont';
+    ctx.fillText(`Score for: ${finalUsername}`, canvas.width / 2, 2500) //username
 
     const imageData = canvas.toDataURL('image/png');
     imageElement.src = imageData;
