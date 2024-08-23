@@ -80,14 +80,37 @@
       #show-results:hover {
         background-color: #ffa07a; 
       }
-  
+
+      #show-results[disabled] {
+        cursor: not-allowed;
+        background-color: #ccc; 
+        color: #666; 
+      }
+      
       #download-link {
-        font-family: myFont;
         text-decoration: none;
         color: #337ab7;
       }
       #download-link:hover {
         color: #23527c;
+      }
+
+      #username {
+        font-family: myFont;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        background-color: #fff;
+        color: #337ab7;
+      }
+      
+      #username:focus {
+        outline: none;
+        box-shadow: 0 0 10px rgba(51, 122, 183, 0.5);
+      }
+      
+      #username::placeholder {
+        color: #ccc;
       }
   
       #footer {
@@ -109,7 +132,7 @@
         margin: 10px;
         padding: 10px 20px;
         border: none;
-        border-radius: 5px;
+        border-radius: 10px;
         background-color: #4CAF50;
         color: #fff;
         cursor: pointer;
@@ -132,6 +155,7 @@
     background-color: #f0f0f0;
   }
   .download-button {
+    font-family: myFont;
     background-color: #337ab7;
     color: #fff; 
     padding: 10px 20px;
@@ -149,6 +173,7 @@
     color: #666; 
     cursor: not-allowed;
   }
+
   .imageHead {
     display: flex;
     align-items: center;
