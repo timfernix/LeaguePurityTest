@@ -5,6 +5,12 @@
   <link rel="icon" type="image/x-icon" href="favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
+  <meta property="og:title" content="timfernix' League Purity Test" />
+  <meta property="og:description" content="Take the test and find out how pure you are! Tick the boxes and get your score at the end." />
+  <meta property="og:image" content="https://timfernix.github.io/leaguepuritytest/thumb.png" />
+  <meta property="og:url" content="https://timfernix.github.io/leaguepuritytest/" />
+  <meta property="og:site_name" content="League Purity Test" />
+  <meta property="og:type" content="website" />
 </head>
 <body>
        <div class="container">
@@ -45,6 +51,7 @@
         <li><input type="checkbox" id="item100" value="1"> Have you ever had a 10+ game winning streak?</li>
         <li><input type="checkbox" id="item101" value="1"> Have you ever gotten all 4 drakes in a row, earning the Dragon Soul without the enemy team getting a single drake?</li>
         <li><input type="checkbox" id="item102" value="1"> Have you ever doubled your enemy's vision score?</li>
+        <li><input type="checkbox" id="item29" value="1"> Have you ever intentionally given a pentakill to an enemy player (because it didn't change the outcome of the game)?</li>
       </ul>
       <h2>Negative Behavior</h2>
       <ul id="list">
@@ -54,7 +61,6 @@
         <li><input type="checkbox" id="item26" value="-1"> Have you ever soft-inted or abandoned a teamfight or objective, putting your team at a disadvantage?</li>
         <li><input type="checkbox" id="item27" value="-1"> Have you ever rage-quit a game?</li>
         <li><input type="checkbox" id="item28" value="-1"> Have you ever stolen a pentakill from a teammate, either accidentally or on purpose?</li>
-        <li><input type="checkbox" id="item29" value="-1"> Have you ever intentionally given a pentakill to an enemy player?</li>
         <li><input type="checkbox" id="item30" value="-1"> Have you ever spammed FF votes in an attempt to end the game prematurely?</li>
         <li><input type="checkbox" id="item31" value="-1"> Have you ever engaged in rage-split pushing?</li>
         <li><input type="checkbox" id="item32" value="-1"> Have you ever intentionally thrown a game in order to create a dramatic or impressive play for a montage or highlight video?</li>
@@ -192,15 +198,6 @@
         imageElement.src = '';
         downloadLink.href = '#';
       } else {
-
-        const script = document.createElement('script');
-        let time = (new Date()).toString();
-        script.src = `https://script.google.com/macros/s/AKfycbxFBGLFmNlgLG_ffuq-cTCGwlxael-KipTpoE2N2GT0ZiJtF5XxLdJxK6vQmpO8pR03sw/exec?data=${totalWeight}&timestamp=${time}&callback=handleResponse`;
-        document.body.appendChild(script);
-        function handleResponse(data) {
-          console.log(data);
-        }
-
         let positiveCount = 0;
         let negativeCount = 0;
         selectedItems.forEach((id) => {
@@ -209,8 +206,21 @@
             positiveCount++;
           } else if (value < 0) {
             negativeCount++;
-          }
+          }   
     });
+
+    fetch('https://discord.com/api/webhooks/1276494436309794816/Vdp4OqGd-bUuU3CmuGs9RFSm5427D80TrPuAGPHVdb2IL3dYAqrKf82Z4wHmqJfn9Tqu', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      body: JSON.stringify({
+        content: `Score: ${totalWeight}`,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error));
 
     const summaryText = `You selected ${selectedItems.length} item(s) and scored ${positiveCount} positive and ${negativeCount} negative point(s), resulting in a score of ${totalWeight} point(s)!`;
     summaryElement.textContent = summaryText;
