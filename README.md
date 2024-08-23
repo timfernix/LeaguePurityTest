@@ -18,7 +18,10 @@ The test consists of a series of questions that you can tick. Your responses wil
 * Shareable results so you can compare with friends and brag about your score
 
 🛠 **Note**
+
 I am not a good programmer, so i had to make some workarounds. If anyone has any information about the following problems, please let me know and I will revise the code:
 - Drawing images on the canvas (with `drawImage()`) doesnt work after one image is set.
 
 Thats it for now.
+
+![](thumb.png)
