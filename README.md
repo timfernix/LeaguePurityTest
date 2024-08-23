@@ -22,7 +22,13 @@ I am not a good programmer, so i had to make some workarounds. If anyone has any
 - Drawing images on the canvas (with `drawImage()`) doesnt work after one image is set.
 
 ### 📢 **Changelog**
-
+Listed here are only majoy changes to the code: <br>
 | Version | Changes |
 |---------|---------|
-|         |         |
+|v2.3|Mobile support: Text is now clickable!|
+|v2.2.1|Changed Logging to Webhook|
+|v2.2|Added Logging via Google App Script|
+|v2.1.1|Workaround for Images|
+|v2.1|Added More Questions|
+|v2.0|Created basic HTML Structure & CSS|
+|v1.0|Only Existed on [Twitter](https://x.com/timfernix/status/1825226833777840179/photo/1)|
