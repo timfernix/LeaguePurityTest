@@ -26,9 +26,10 @@ Listed here are only majoy changes to the code: <br>
 | Version | Changes |
 |---------|---------|
 |v2.3|Mobile support: Text is now clickable!|
+|v2.2.2|Added metadata for OpenGraph|
 |v2.2.1|Changed Logging to Webhook|
 |v2.2|Added Logging via Google App Script|
-|v2.1.1|Workaround for Images|
-|v2.1|Added More Questions|
+|v2.1.1|Added Workaround for imagegeneration|
+|v2.1|Added more questions|
 |v2.0|Created basic HTML Structure & CSS|
-|v1.0|Only Existed on [Twitter](https://x.com/timfernix/status/1825226833777840179/photo/1)|
+|v1.0|Only existed on [Twitter](https://x.com/timfernix/status/1825226833777840179/photo/1)|
