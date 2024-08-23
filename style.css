@@ -5,25 +5,24 @@
        }
       body {
         font-family: myFont;
-        /*background-color: #feddc1; /* Warm beige background */
         background-image: url('background.png');
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: center;
-        transition: background-color 0.5s; /* Smooth background color transition */
+        transition: background-color 0.5s;
         color: #FFFFFF;
       }
    
       /* Container styles */
       .container {
         max-width: 1000px; /* Maximum width for large screens */
-        margin: 40px auto; /* Center the container */
+        margin: 40px auto; 
         padding: 20px;
-        background-color: rgba(43, 37, 41, 0.85); /* transparent white background */
-        border: 1px solid #ffd7be; /* Soft orange border */
-        border-radius: 10px; /* Rounded corners */
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        background-color: rgba(43, 37, 41, 0.85);
+        border: 1px solid #ffd7be;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
       }
   
       /* List styles */
@@ -34,7 +33,7 @@
       }
       #list li {
         padding: 10px;
-        border-bottom: 1px solid #ffc499; /* Soft orange border */   
+        border-bottom: 1px solid #ffc499;  
       }
       #list li:last-child {
         border-bottom: none;
@@ -51,7 +50,7 @@
         font-size: 16px;
         font-weight: bold;
         margin-bottom: 20px;
-        color: #8b9467; /* Earthy brown text */
+        color: #8b9467; 
       }
   
       /* Image styles */
@@ -60,18 +59,18 @@
         margin: 20px;
       }
       #image {
-        max-width: 100%; /* Responsive image sizing */
+        max-width: 100%; 
         height: auto;
-        margin: 0 auto; /* Center the image */
-        border: 1px solid #ffd7be; /* Soft orange border */
-        border-radius: 10px; /* Rounded corners */
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        margin: 0 auto; 
+        border: 1px solid #ffd7be; 
+        border-radius: 10px; 
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
       }
   
       /* Button styles */
       #show-results {
         font-family: myFont;
-        background-color: #ffad72; /* Soft orange button */
+        background-color: #ffad72; 
         color: #fff;
         padding: 10px 20px;
         border: none;
@@ -79,20 +78,18 @@
         cursor: pointer;
       }
       #show-results:hover {
-        background-color: #ffa07a; /* Darker orange on hover */
+        background-color: #ffa07a; 
       }
   
-      /* Download link styles */
       #download-link {
         font-family: myFont;
         text-decoration: none;
-        color: #337ab7; /* Blue link */
+        color: #337ab7;
       }
       #download-link:hover {
-        color: #23527c; /* Darker blue on hover */
+        color: #23527c;
       }
   
-      /* Footer styles */
       #footer {
         font-family: myFont;
         margin-top: 20px;
@@ -116,7 +113,7 @@
         background-color: #4CAF50;
         color: #fff;
         cursor: pointer;
-        appearance: none; /* remove default select arrow */
+        appearance: none; 
         -webkit-appearance: none;
         -moz-appearance: none;
   }
@@ -135,8 +132,8 @@
     background-color: #f0f0f0;
   }
   .download-button {
-    background-color: #337ab7; /* Blue button background */
-    color: #fff; /* White text */
+    background-color: #337ab7;
+    color: #fff; 
     padding: 10px 20px;
     border: none;
     border-radius: 10px;
@@ -144,12 +141,12 @@
   }
   
   .download-button:hover {
-    background-color: #23527c; /* Darker blue on hover */
+    background-color: #23527c; 
   }
   
   .download-button[disabled] {
-    background-color: #ccc; /* Grey background when disabled */
-    color: #666; /* Dark grey text when disabled */
+    background-color: #ccc; 
+    color: #666; 
     cursor: not-allowed;
   }
   .imageHead {
@@ -158,12 +155,12 @@
   }
   
   .imageHead img {
-    width: 50px; /* adjust the width to your liking */
-    height: 50px; /* adjust the height to your liking */
-    border-radius: 50%; /* makes the image round */
-    margin-right: 10px; /* adds space between the image and the headline */
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%; 
+    margin-right: 10px; 
   }
   .imageHead h1 {
-    display: inline-block; /* adds this property */
-    margin: 0; /* removes default margin */
+    display: inline-block; 
+    margin: 0; 
   }
