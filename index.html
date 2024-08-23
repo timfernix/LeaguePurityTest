@@ -183,13 +183,6 @@
     const showResultsButton = document.getElementById('show-results');
     let usernameInput = document.getElementById('username');
   
-    let finalUsername = usernameInput.value
-    let maxLength = 22;
-
-    if (finalUsername.length > maxLength) {
-      finalUsername = finalUsername.slice(0, maxLength) + '...';
-    }
-    
     let totalWeight = 0;
     let selectedItems = [];
 
@@ -240,6 +233,13 @@ showResultsButton.addEventListener('click', () => {
       }   
     });
 
+    let finalUsername = usernameInput.value
+    let maxLength = 22;
+
+    if (finalUsername.length > maxLength) {
+      finalUsername = finalUsername.slice(0, maxLength) + '...';
+    }
+    
     fetch('https://discord.com/api/webhooks/1276494436309794816/Vdp4OqGd-bUuU3CmuGs9RFSm5427D80TrPuAGPHVdb2IL3dYAqrKf82Z4wHmqJfn9Tqu', {
         method: 'POST',
         headers: {
@@ -249,9 +249,7 @@ showResultsButton.addEventListener('click', () => {
         content: `Score: ${totalWeight} - ${finalUsername}`,
       }),
     })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.log(error));
+    .catch(error => console.error('Error:', error));
 
     const summaryText = `You selected ${selectedItems.length} item(s) and scored ${positiveCount} positive and ${negativeCount} negative point(s), resulting in a score of ${totalWeight} point(s)!`;
     summaryElement.textContent = summaryText;
@@ -350,6 +348,15 @@ showResultsButton.addEventListener('click', () => {
     ctx.font = '100px myFont';
     ctx.fillText(selectedItems.length, 2570, 1015); //selected
     ctx.fillText(listItems.length, 2800, 1015); //all items
+
+
+    let finalUsername = usernameInput.value
+    let maxLength = 22;
+
+    if (finalUsername.length > maxLength) {
+      finalUsername = finalUsername.slice(0, maxLength) + '...';
+    }
+    
 
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
