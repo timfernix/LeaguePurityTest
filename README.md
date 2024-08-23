@@ -1,5 +1,4 @@
-timfernix' League Purity Test v2
-================
+![](thumb.png)
 
 An assessment of your League of Legends gameplay habits and experiences.
 
@@ -22,6 +21,8 @@ The test consists of a series of questions that you can tick. Your responses wil
 I am not a good programmer, so i had to make some workarounds. If anyone has any information about the following problems, please let me know and I will revise the code:
 - Drawing images on the canvas (with `drawImage()`) doesnt work after one image is set.
 
-Thats it for now.
+📢 **Changelog**
 
-![](thumb.png)
+| Version | Changes |
+|---------|---------|
+|         |         |
