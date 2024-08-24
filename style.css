@@ -52,13 +52,12 @@
         margin-bottom: 20px;
         color: #8b9467; 
       }
-  
       /* Image styles */
       #image-container {
         text-align: center;
         margin: 20px;
       }
-      #image {
+      #canvas {
         max-width: 100%; 
         height: auto;
         margin: 0 auto; 
@@ -86,15 +85,7 @@
         background-color: #ccc; 
         color: #666; 
       }
-      
-      #download-link {
-        text-decoration: none;
-        color: #337ab7;
-      }
-      #download-link:hover {
-        color: #23527c;
-      }
-
+ 
       #username {
         font-family: myFont;
         padding: 10px 20px;
