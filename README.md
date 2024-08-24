@@ -20,6 +20,7 @@ The test consists of a series of questions that you can tick. Your responses wil
 Listed here are only major changes to the code: <br>
 | Version | Changes |
 |---------|---------|
+|v2.7|Added Legal Notice & More images|
 |v2.6|Removed Workaround, New Image generation, bugfixes|
 |v2.5|Added basic balancing|
 |v2.4|Customization: Username input added|
@@ -31,3 +32,6 @@ Listed here are only major changes to the code: <br>
 |v2.1|Added more questions|
 |v2.0|Created basic HTML Structure & CSS|
 |v1.0|Only existed on [Twitter](https://x.com/timfernix/status/1825226833777840179/photo/1)|
+
+### 📑 **Legal Notice**
+This project is created under Riot Games' "Legal Jibber Jabber" policy using assets owned by Riot Games.  Riot Games does not endorse or sponsor this project.
