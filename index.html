@@ -16,8 +16,8 @@
        <div class="container">
     <div class="imageHead"><img src="https://pbs.twimg.com/profile_images/1762230004740468736/bU1Ug6oA_400x400.jpg" alt="n">
 <h1>timfernix' League Purity Test</h1></div>
-<h5>Version: 2.5 | Last updated: August 23th 2024 @ 08:02PM EET</h5>
-  <p id="how-to">Welcome to my League of Legends Purity Test. This test is designed to gauge your LoL experience and habits. Simply click on all the statements that apply to you. As you go through the test, you'll notice a mix of positive and negative statements. That's because your score can be negative if you've made some... questionable choices in-game. Once you've clicked on all the statements that apply to you, enter your name, choose a background image to personalize your results (at least a little bit). Finally, click on "Show Results" to see your score! <br><br>Note: Some of the questions are inspired by my first version of the League Purity Test that i posted on <a href="https://x.com/timfernix/status/1825226833777840179/photo/1"><i class="fa-brands fa-x-twitter"></i>Twitter</a>, but i added many more to make it even better. So, be honest and have fun! <br><br></p>
+<h6>Version: 2.6 | Last updated: August 24th 2024 @ 02:10AM EET</h6>
+  <p id="how-to">Welcome to my League of Legends Purity Test. This test is designed to gauge your LoL experience and habits. Simply click on all the statements that apply to you. As you go through the test, you'll notice a mix of positive and negative statements. That's because your score can be negative if you've made some... questionable choices in-game. Once you've clicked on all the statements that apply to you, enter your name, choose a background image to personalize your results (at least a little bit). Finally, click on "Show Results" to see your score! <br><br>Note: Some of the questions are inspired by my first version of the League Purity Test that i posted on <a href="https://x.com/timfernix/status/1825226833777840179/photo/1" target=”_blank”><i class="fa-brands fa-x-twitter"></i>Twitter</a>, but i added many more to make it even better. So, be honest and have fun! <br><br></p>
   <div id="list-container">
       <h2>Sportmanship</h2>
       <ul id="list">
@@ -150,7 +150,7 @@
         <li><input type="checkbox" id="item110" value="2"> <label for="item110">Have you ever used the replay feature to analyze one of your games?</label></li>
       </ul><br><br>
       <h2>Select background and get your score</h2>
-      <p>Please fill in your twitter username or Riot ID (max. 22. letters), choose a background image and click `Show Results` to see your score.</p>
+      <p>Please fill in your Twitter username or Riot ID (max. 22. letters), choose a background image and click `Show Results` to see your score. You can download your summary below.</p>
       <div>
         <label for="username">Username:</label>
         <input type="text" id="username" required>
@@ -160,6 +160,8 @@
           <option value="image2">Yone, Kindred, Caitlyn, Illaoi & Veigar</option>
           <option value="image3">Senna, Vi, Yasuo, Lulu &Volibear</option>
           <option value="image4">Tristana, Malphite, Ekko, Katarina & Morgana</option>
+          <option value="image5">Anima Squad</option>
+          <option value="image6">Pride</option>
         </select>
         <button id="show-results" disabled>Show Results/Update</button>
       </div>
@@ -167,206 +169,227 @@
         <h2>Summary:</h2>
         <p id="summary">No items selected</p>
         <div id="image-container">
-          <img id="image" src="" alt=""> <br>
-          <a id="download-link" href="#" download="summary.png">
-            <button class="download-button" id="download-btn" disabled>Download Image</button></a>
+            <div id="canvas-container" style="display: none;">
+                <canvas id="canvas" width="1920" height="1080"></canvas><br>
+            </div>
+          <button class="download-button" id="download-btn" disabled>Download Image</button>
         </div>
   </div>
   <div id="footer">
-    Made by <a href="https://x.com/timfernix" target="_blank"><i class="fa-brands fa-x-twitter"></i> timfernix</a> | <a href="https://github.com/timfernix" target="_blank"><i class="fa-brands fa-github"></i> timfernix</a>
+    League Purity Test by <a href="https://x.com/timfernix" target="_blank"><i class="fa-brands fa-x-twitter"></i> timfernix</a> | <a href="https://github.com/timfernix" target="_blank"><i class="fa-brands fa-github"></i> timfernix </a>
   </div>
   <script>
     const listItems = document.querySelectorAll('#list li input[type="checkbox"]');
     const summaryElement = document.getElementById('summary');
     const imageElement = document.getElementById('image');
-    const downloadLink = document.getElementById('download-link');
+    const downloadButton = document.getElementById('download-btn');
     const showResultsButton = document.getElementById('show-results');
     let usernameInput = document.getElementById('username');
+    const container = document.getElementById('canvas-container');
   
     let totalWeight = 0;
     let selectedItems = [];
 
-showResultsButton.disabled = true;
+    showResultsButton.disabled = true;
 
-listItems.forEach((item) => {
-  item.addEventListener('change', (e) => {
-    if (e.target.checked) {
-      totalWeight += parseInt(e.target.value);
-      selectedItems.push(e.target.id);
-      if (usernameInput.value !== '' && selectedItems.length > 0) {
-        showResultsButton.disabled = false; 
-      }
-    } else {
-      totalWeight -= parseInt(e.target.value);
-      selectedItems = selectedItems.filter((id) => id !== e.target.id);
-      if (usernameInput.value === '' || selectedItems.length === 0) {
-        showResultsButton.disabled = true; 
-      }
-    }
-  });
-});
-
-usernameInput.addEventListener('input', () => {
-  if (usernameInput.value !== '') {
-    if (selectedItems.length > 0) {
-      showResultsButton.disabled = false; 
-    }
-  } else {
-    showResultsButton.disabled = true; 
-  }
-});
-
-showResultsButton.addEventListener('click', () => {
-  if (selectedItems.length === 0) {
-    summaryElement.textContent = 'No items selected';
-    imageElement.src = '';
-    downloadLink.href = '#';
-  } else {
-    let positiveCount = 0;
-    let negativeCount = 0;
-    selectedItems.forEach((id) => {
-      const value = parseInt(document.getElementById(id).value);
-      if (value > 0) {
-        positiveCount++;
-      } else if (value < 0) {
-        negativeCount++;
-      }   
+    listItems.forEach((item) => {
+        item.addEventListener('change', (e) => {
+            if (e.target.checked) {
+                totalWeight += parseInt(e.target.value);
+                selectedItems.push(e.target.id);
+                if (usernameInput.value !== '' && selectedItems.length > 0) {
+                    showResultsButton.disabled = false; 
+                }
+            } else {
+                totalWeight -= parseInt(e.target.value);
+                selectedItems = selectedItems.filter((id) => id !== e.target.id);
+                if (usernameInput.value === '' || selectedItems.length === 0) {
+                    showResultsButton.disabled = true; 
+                }
+            }
+        });
     });
 
-    let finalUsername = usernameInput.value
-    let maxLength = 22;
+    usernameInput.addEventListener('input', () => {
+        if (usernameInput.value !== '') {
+            if (selectedItems.length > 0) {
+                showResultsButton.disabled = false; 
+            }
+        } else {
+            showResultsButton.disabled = true; 
+        }
+    });
 
-    if (finalUsername.length > maxLength) {
-      finalUsername = finalUsername.slice(0, maxLength) + '...';
-    }
+    showResultsButton.addEventListener('click', () => {
+        if (selectedItems.length === 0) {
+            summaryElement.textContent = 'No items selected';
+            imageElement.src = '';
+            downloadLink.href = '#';
+        } else {
+            if(document.querySelector('.image-select').value != ''){
+            container.style.display = 'block'; }
+
+            let positiveCount = 0;
+            let negativeCount = 0;
+            selectedItems.forEach((id) => {
+                const value = parseInt(document.getElementById(id).value);
+                if (value > 0) {
+                positiveCount++;
+            } else if (value < 0) {
+                negativeCount++;
+            }   
+        });
+
+        const summaryText = `You selected ${selectedItems.length} item(s), of which ${positiveCount} were positive and ${negativeCount} negative, resulting in a score of ${totalWeight} point(s)!`;
+        summaryElement.textContent = summaryText;
+
+            let finalUsername = usernameInput.value
+            let maxLength = 22;
+
+            if (finalUsername.length > maxLength) {
+                finalUsername = finalUsername.slice(0, maxLength) + '...';
+            }
     
-    fetch('https://discord.com/api/webhooks/1276494436309794816/Vdp4OqGd-bUuU3CmuGs9RFSm5427D80TrPuAGPHVdb2IL3dYAqrKf82Z4wHmqJfn9Tqu', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      body: JSON.stringify({
-        content: `Score: ${totalWeight} - ${finalUsername}`,
-      }),
-    })
-    .catch(error => console.error('Error:', error));
+            fetch('https://discord.com/api/webhooks/1276494436309794816/Vdp4OqGd-bUuU3CmuGs9RFSm5427D80TrPuAGPHVdb2IL3dYAqrKf82Z4wHmqJfn9Tqu', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    content: `Score: ${totalWeight} - ${finalUsername}`,
+                }),
+             })
+            .catch(error => console.error('Error:', error));
 
-    const summaryText = `You selected ${selectedItems.length} item(s) and scored ${positiveCount} positive and ${negativeCount} negative point(s), resulting in a score of ${totalWeight} point(s)!`;
-    summaryElement.textContent = summaryText;
-    generateImage(summaryText);
-  }
+            const ctx = canvas.getContext('2d');
+            const imageSelect = document.querySelector('.image-select');
+            const selectedImage = imageSelect.value;
+
+            if (totalWeight < -51) {
+                weight = `You've managed to scrape together ${totalWeight} points.`
+                title = `Reflect on your behavior and gameplay. Toxicity has no place here. `;
+                title2 = `Take a break, reassess, and come back with a fresh attitude.`;
+                rank = "iron";
+                emote = "1despair";
+             } else if (totalWeight < -28) {
+                weight = `You've earned a modest ${totalWeight} points.`
+                title = `Step back and assess your behavior and gameplay.`;
+                title2 = `Identify areas for improvement and work on a positive attitude.`;
+                rank = "bronze";
+                emote = "2kidding";
+             } else if (totalWeight < -6) {
+                weight = `You've scored a decent ${totalWeight} points.`
+                title = `You're struggling. Focus on improving skills and attitude. Toxic`;
+                title2 = `behavior holds you back. Be a positive influence and minimize mistakes.`;
+                rank = "silver";
+                emote = "3what";
+             } else if (totalWeight < 15) {
+                weight = `You've racked up a respectable ${totalWeight} points.`
+                title = `You're showing promise, but need improvement.`;
+                title2 = `Develop good habits and a positive attitude to see progress.`;
+                rank = "gold";
+                emote = "4nicetry";
+             } else if (totalWeight < 34) {
+                weight = `You've accumulated a nice ${totalWeight} points.`
+                title = `You're on the right track! Keep working on skills and`;
+                title2 = `stay respectful and positive, even in tough situations.`;
+                rank = "platin";
+                emote = "5great";
+             } else if (totalWeight < 51) {
+                weight = `You've notched up a solid ${totalWeight} points.`
+                title = `You're making progress! Keep up the good work and stay focused on`;
+                title2 = `improvement. You're getting closer to your full potential.`;
+                rank = "emerald";
+                emote = "6okay";
+             } else if (totalWeight < 66) {
+                weight = `You've banked a impressive ${totalWeight} points.`
+                title = `You're a skilled player with a great attitude!`;
+                title2 = `Lead by example and show what it means to be a good sport.`;
+                rank = "diamond";
+                emote = "7gj";
+             } else if (totalWeight < 80) {
+                weight = `You've chalked up an excellent ${totalWeight} points.`
+                title = `You're exceptional! Keep pushing yourself to`;
+                title2 = `improve and stay humble and respectful, even in victory.`;
+                rank = "master";
+                emote = "8love";
+             } else if (totalWeight < 91) {
+                weight = `You've reached an outstanding ${totalWeight} points.`
+                title = `You're a master of the game! Keep lifting up teammates`;
+                title2 = `and opponents, and never stop striving for excellence.`;
+                rank = "grandmaster";
+                emote = "9nice";
+             }  else { // 91-100
+                weight = `You scored an impressive ${totalWeight} points.`
+                title = `You're a legend in the making! Keep shining, and always`;
+                title2 = `lift up those around you. You're a true role model.`;
+                rank = "challenger";
+                emote = "10ez";
+             }
+
+            const backgroundImage = new Image();
+            backgroundImage.src = `./images/${selectedImage}.png`;
+            backgroundImage.onload = () => {
+                ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+
+            const rankImage = new Image();
+            rankImage.src = `./ranks/${rank}.png`;
+            rankImage.onload = () => {
+                ctx.drawImage(rankImage, 200, 250, 300, 300);
+
+            const emoteImage = new Image();
+            emoteImage.src = `./emotes/${emote}.png`;
+            emoteImage.onload = () => {
+                ctx.drawImage(emoteImage, 1400, 250, 300, 300);
+
+            ctx.font = '50px myFont';
+            ctx.fillStyle = '#FFFFFF';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+
+            const pMax = "100";
+            const nMax = "-75";
+
+            const percentage = (((totalWeight - nMax) / (pMax - nMax)) * 100).toFixed(2);
+
+            ctx.fillText(weight, canvas.width / 2, 675); //weight
+            ctx.fillText(title, canvas.width / 2, 750); //title1
+            ctx.fillText(title2, canvas.width / 2, 825); //title2
+
+            ctx.font = '80px myFont';
+            ctx.fillText(`Your Score: ${totalWeight} / ${pMax} Points`, canvas.width / 2, 320);
+
+            ctx.fillStyle = '#ffd7be';
+            ctx.fillText(`That's ${percentage}% pure`, canvas.width / 2, 480)
+
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+            ctx.font = '35px myFont';
+            ctx.fillText(`You picked ${selectedItems.length} / ${listItems.length} Items `, canvas.width / 2, 400); 
+
+            let finalUsername = usernameInput.value
+            let maxLength = 22;
+
+            if (finalUsername.length > maxLength) {
+                finalUsername = finalUsername.slice(0, maxLength) + '...';
+            }
+
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.75)';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.font = '40px myFont';
+            ctx.fillText(`Score for: ${finalUsername}`, canvas.width / 2, 930) //username
+
+            document.getElementById('download-btn').disabled = false;
+            }}};
+
+            downloadButton.addEventListener('click', () => {
+                const dataURL = canvas.toDataURL('image/png');
+                const link = document.createElement('a');
+                link.href = dataURL;
+                link.download = 'image.png';
+                link.click();
+            });
+        }
 });
-    
-  function generateImage(text) {
-  const canvas = document.createElement('canvas');
-  canvas.width = 5120;
-  canvas.height = 2880;
-  const ctx = canvas.getContext('2d');
-
-  const imageSelect = document.querySelector('.image-select');
-  const selectedImage = imageSelect.value;
-
-    if (totalWeight < -51) {
-      weight = `You've managed to scrape together ${totalWeight} points.`
-      title = `Reflect on your behavior and gameplay. Toxicity has no place here. `;
-      title2 = `Take a break, reassess, and come back with a fresh attitude.`;
-      rank = "iron";
-    } else if (totalWeight < -28) {
-      weight = `You've earned a modest ${totalWeight} points.`
-      title = `Step back and assess your behavior and gameplay.`;
-      title2 = `Identify areas for improvement and work on a positive attitude.`;
-      rank = "bronze";
-    } else if (totalWeight < -6) {
-      weight = `You've scored a decent ${totalWeight} points.`
-      title = `You're struggling. Focus on improving skills and attitude. Toxic`;
-      title2 = `behavior holds you back. Be a positive influence and minimize mistakes.`;
-      rank = "silver";
-    } else if (totalWeight < 15) {
-      weight = `You've racked up a respectable ${totalWeight} points.`
-      title = `You're showing promise, but need improvement.`;
-      title2 = `Develop good habits and a positive attitude to see progress.`;
-      rank = "gold";
-    } else if (totalWeight < 34) {
-      weight = `You've accumulated a nice ${totalWeight} points.`
-      title = `You're on the right track! Keep working on skills and`;
-      title2 = `stay respectful and positive, even in tough situations.`;
-      rank = "platin";
-    } else if (totalWeight < 51) {
-      weight = `You've notched up a solid ${totalWeight} points.`
-      title = `You're making progress! Keep up the good work and stay focused on`;
-      title2 = `improvement. You're getting closer to your full potential.`;
-      rank = "emerald";
-    } else if (totalWeight < 66) {
-      weight = `You've banked a impressive ${totalWeight} points.`
-      title = `You're a skilled player with a great attitude!`;
-      title2 = `Lead by example and show what it means to be a good sport.`;
-      rank = "diamond";
-    } else if (totalWeight < 80) {
-      weight = `You've chalked up an excellent ${totalWeight} points.`
-      title = `You're exceptional! Keep pushing yourself to`;
-      title2 = `improve and stay humble and respectful, even in victory.`;
-      rank = "master";
-    } else if (totalWeight < 91) {
-      weight = `You've reached an outstanding ${totalWeight} points.`
-      title = `You're a master of the game! Keep lifting up teammates`;
-      title2 = `and opponents, and never stop striving for excellence.`;
-      rank = "grandmaster";
-    }  else { // 91-100
-      weight = `You scored an impressive ${totalWeight} points.`
-      title = `You're a legend in the making! Keep shining, and always`;
-      title2 = `lift up those around you. You're a true role model.`;
-      rank = "challenger";
-    }
-
-  const backgroundImage = new Image();
-  backgroundImage.src = `./img/${selectedImage}${rank}.png`; 
-  backgroundImage.onload = () => {
-  ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
-
-    ctx.font = '140px myFont';
-    ctx.fillStyle = '#FFFFFF';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-
-    const pMax = "100";
-    const nMax = "-75";
-
-    const percentage = (((totalWeight - nMax) / (pMax - nMax)) * 100).toFixed(2);
-
-    ctx.fillText(weight, canvas.width / 2, 1700); //weight
-    ctx.fillText(title, canvas.width / 2, 1900); //title1
-    ctx.fillText(title2, canvas.width / 2, 2100); //title2
-
-    ctx.font = '180px myFont';
-    ctx.fillText(pMax, 2950, 777); //all positive points
-
-    ctx.fillStyle = '#ffd7be';
-    ctx.fillText(`${percentage}% pure`, canvas.width/2, 1270)
-    ctx.fillText(totalWeight, 2600, 777); //points
-
-    ctx.fillStyle = '#FFFFFF';
-    ctx.font = '100px myFont';
-    ctx.fillText(selectedItems.length, 2570, 1015); //selected
-    ctx.fillText(listItems.length, 2800, 1015); //all items
-
-    let finalUsername = usernameInput.value
-    let maxLength = 22;
-
-    if (finalUsername.length > maxLength) {
-      finalUsername = finalUsername.slice(0, maxLength) + '...';
-    }
-    
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.font = '100px myFont';
-    ctx.fillText(`Score for: ${finalUsername}`, canvas.width / 2, 2500) //username
-
-    const imageData = canvas.toDataURL('image/png');
-    imageElement.src = imageData;
-    downloadLink.href = imageData;
-
-  document.getElementById('download-btn').disabled = false;
-}};
-
 </script>
 </body>
