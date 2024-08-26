@@ -16,19 +16,24 @@ The test consists of a series of questions that you can tick. Your responses wil
 * A purity score that will let you know just how "pure" you are
 * Shareable results so you can compare with friends and brag about your score
 
+### 🚩 **Note**
+
+Be aware that this is a subjective test, as it was only created by me and therefore based on my experience and just to have a bit of fun with it. I look forward to any feedback under my announcement post on [Twitter](https://x.com/timfernix/status/1827270025004150791). Thank you very much!
+
 ### 📢 **Changelog**
 Listed here are only major changes to the code: <br>
 | Version | Changes |
 |---------|---------|
+|v2.8|Modified Note & some questions|
 |v2.7|Added Legal Notice & More images|
-|v2.6|Removed Workaround, New Image generation, bugfixes|
+|v2.6|Removed Workaround, New image generation, bugfixes|
 |v2.5|Added basic balancing|
 |v2.4|Customization: Username input added|
 |v2.3|Mobile support: Text is now clickable!|
 |v2.2.2|Added metadata for OpenGraph|
 |v2.2.1|Changed Logging to Webhook|
 |v2.2|Added Logging via Google App Script|
-|v2.1.1|Added Workaround for imagegeneration|
+|v2.1.1|Added Workaround for image generation|
 |v2.1|Added more questions|
 |v2.0|Created basic HTML Structure & CSS|
 |v1.0|Only existed on [Twitter](https://x.com/timfernix/status/1825226833777840179/photo/1)|
