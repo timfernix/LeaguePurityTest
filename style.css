@@ -180,3 +180,18 @@
     display: inline-block; 
     margin: 0; 
   }
+  a:link {
+    color: #774ad5; 
+  }
+  
+  a:visited {
+    color: #0c0c2d; 
+  }
+  
+  a:hover {
+    color: #c38bed; 
+  }
+  
+  a:active {
+    color: #899bd8; 
+  }
