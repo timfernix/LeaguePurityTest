@@ -24,6 +24,7 @@ Be aware that this is a subjective test, as it was only created by me and theref
 Listed here are only major changes to the code: <br>
 | Version | Changes |
 |---------|---------|
+|v2.9|Changed order of some questions|
 |v2.8|Modified Note & some questions|
 |v2.7|Added Legal Notice & More images|
 |v2.6|Removed Workaround, New image generation, bugfixes|
