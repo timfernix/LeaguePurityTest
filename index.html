@@ -16,7 +16,7 @@
   <div class="container">
   <div class="imageHead"><img src="https://pbs.twimg.com/profile_images/1762230004740468736/bU1Ug6oA_400x400.jpg" alt="n">
   <h1>timfernix' League Purity Test</h1></div>
-  <h6>Version: 2.8 | Last updated: August 26th 2024 @ 10:58PM EET</h6>
+  <h6>Version: 2.9 | Last updated: August 28th 2024 @ 09:20PM EET</h6>
   <p id="how-to">Welcome to my League of Legends Purity Test. This test is designed to gauge your League of Legends experience and habits. Simply click on all the statements that apply to you. As you go through the test, you'll notice a mix of positive and negative statements. That's because your score can be negative if you've made some... questionable choices in-game. Once you've clicked on all the statements that apply to you, enter your name, choose a background image to personalize your results (at least a little bit). Finally, click on "Show Results" to see your score! <br><br>Some of the questions are inspired by my first version of the League Purity Test that i posted on <a href="https://x.com/timfernix/status/1825226833777840179/photo/1" target=”_blank”><i class="fa-brands fa-x-twitter"></i> / Twitter</a>, but i added many more to make it even better. So, be honest and have fun! <br><br>Note: Be aware that this is a subjective test, as it was only created by me and therefore based on my experience and just to have a bit of fun with it. I look forward to any feedback under my announcement post on <a href="https://x.com/timfernix/status/1827270025004150791" target=”_blank”><i class="fa-brands fa-x-twitter"></i> / Twitter</a> Thank you very much!</p>
   <div id="list-container">
       <h2>Sportmanship</h2>
@@ -51,6 +51,7 @@
         <li><input type="checkbox" id="item100" value="1"> <label for="item100">Have you ever had a 10+ game winning streak?</label></li>
         <li><input type="checkbox" id="item101" value="1"> <label for="item101">Have you ever gotten all 4 drakes in a row, earning the Dragon Soul without the enemy team getting a single drake?</label></li>
         <li><input type="checkbox" id="item102" value="1"> <label for="item102">Have you ever doubled your enemy's vision score?</label></li>
+        <li><input type="checkbox" id="item31" value="-1"> <label for="item31">Have you ever engaged in rage-split pushing?</label></li>
         <li><input type="checkbox" id="item29" value="1"> <label for="item29">Have you ever intentionally given a pentakill to an enemy player (because it didn't change the outcome of the game)?</label></li>
       </ul>
       <h2>Negative Behavior</h2>
@@ -62,7 +63,6 @@
         <li><input type="checkbox" id="item27" value="-2"> <label for="item27">Have you ever rage-quit a game (because of your own / your teams' performance) ?</label></li>
         <li><input type="checkbox" id="item28" value="-1"> <label for="item28">Have you ever stolen a pentakill from a teammate, either accidentally or on purpose?</label></li>
         <li><input type="checkbox" id="item30" value="-2"> <label for="item30">Have you ever spammed FF votes in an attempt to end the game prematurely?</label></li>
-        <li><input type="checkbox" id="item31" value="-1"> <label for="item31">Have you ever engaged in rage-split pushing?</label></li>
         <li><input type="checkbox" id="item32" value="-2"> <label for="item32">Have you ever intentionally thrown a game in order to create a dramatic or impressive play for a montage or highlight video?</label></li>
         <li><input type="checkbox" id="item33" value="-1"> <label for="item33">Have you ever intentionally stolen a kill from a teammate?</label></li>
         <li><input type="checkbox" id="item34" value="-2"> <label for="item34">Have you ever spammed pings at a teammate, harassing or annoying them?</label></li>
@@ -102,12 +102,12 @@
         <li><input type="checkbox" id="item55" value="1"> <label for="item55">Have you ever given your champion to a friend in an ARAM?</label></li>
         <li><input type="checkbox" id="item56" value="1"> <label for="item56">Have you (mostly) played ARAM games (or temporary modes) without using Exhaust?</label></li>
         <li><input type="checkbox" id="item57" value="1"> <label for="item57">Have you ever banned an opponent's comfort pick?</label></li>
+        <li><input type="checkbox" id="item63" value="-1"> <label for="item63">Have you ever been easily counter-picked by the enemy team?</label></li>
         <li><input type="checkbox" id="item58" value="2"> <label for="item58">Have you ever picked a champion that countered more than three of the enemy champions?</label></li>
         <li><input type="checkbox" id="item59" value="-2"> <label for="item59">Have you ever troll-picked a champion, selecting a champion that would force someone else to dodge the game or change their pick?</label></li>
         <li><input type="checkbox" id="item60" value="-1"> <label for="item60">Have you ever refused to trade champions with a teammate, even after they repeatedly asked or begged you to?</label></li>
         <li><input type="checkbox" id="item61" value="-1"> <label for="item61">Have you ever denied matching skins with a teammate after they asked you to?</label></li>
         <li><input type="checkbox" id="item62" value="-1"> <label for="item62">Have you ever been autofilled into a role you don't play at all and lost the game?</label></li>
-        <li><input type="checkbox" id="item63" value="-1"> <label for="item63">Have you ever been easily counter-picked by the enemy team?</label></li>
       </ul>
       <h2>Social</h2>
       <ul id="list">
@@ -117,6 +117,7 @@
         <li><input type="checkbox" id="item67" value="1"> <label for="item67">Have you ever invited someone to play with you simply because you saw they were online, without any prior planning?</label></li>
         <li><input type="checkbox" id="item68" value="1"> <label for="item68">Have you ever had multiple folders in your friends list, organizing your friends into different groups or categories?</label></li>
         <li><input type="checkbox" id="item69" value="3"> <label for="item69">Have you ever played League of Legends with your real-life best friend as your duo partner?</label></li>
+        <li><input type="checkbox" id="item96" value="2"> <label for="item96">Have you ever played with friends to earn challenge points, completing specific objectives and challenges together?</label></li>
         <li><input type="checkbox" id="item70" value="1"> <label for="item70">Have you ever played a game with a friend or teammate, saying it would be "the last game for tonight," but ended up playing more?</label></li>
         <li><input type="checkbox" id="item71" value="1"> <label for="item71">Have you ever chosen a funny, creative, or iconic username/Riot ID?</label></li>
         <li><input type="checkbox" id="item72" value="2"> <label for="item72">Have you ever participated in duels or tournaments with friends?</label></li>
@@ -129,7 +130,6 @@
         <li><input type="checkbox" id="item79" value="-1"> <label for="item79">Have you ever engaged in flirtatious or romantic conversations with someone in League of Legends direct messages?</label></li>
         <li><input type="checkbox" id="item80" value="-3"> <label for="item80">Have you ever performed sexual favors in exchange for a boost or in-game items, such as skins or Riot Points?</label></li>
         <li><input type="checkbox" id="item81" value="-3"> <label for="item81">Have you ever given a boost or in-game items to someone in exchange for sexual favors?</label></li>
-        <li><input type="checkbox" id="item96" value="2"> <label for="item96">Have you ever played with friends to earn challenge points, completing specific objectives and challenges together?</label></li>
       </ul>
       <h2>Miscellaneous</h2>
       <ul id="list">
@@ -141,13 +141,13 @@
         <li><input type="checkbox" id="item87" value="2"> <label for="item87">Have you ever gotten all 4 honors in a single game?</label></li>
         <li><input type="checkbox" id="item88" value="3"> <label for="item88">Have you achieved Mastery level 100+ on a champion?</label></li>
         <li><input type="checkbox" id="item89" value="1"> <label for="item89">Have you ever collected all skins for a particular champion?</label></li>
+        <li><input type="checkbox" id="item95" value="1"> <label for="item95">Have you ever completed an in-client event, such as Spirit Blossom, Soul Fighter or the Aurora/Ornn quest?</label></li>
+        <li><input type="checkbox" id="item110" value="2"> <label for="item110">Have you ever used the replay feature to analyze one of your games?</label></li>
         <li><input type="checkbox" id="item90" value="-2"> <label for="item90">Have you ever shared your League of Legends account with someone else, allowing them to play on your account to boost your rank or progress?</label></li>
         <li><input type="checkbox" id="item91" value="-3"> <label for="item91">Have you ever bought a boost or account?</label></li>
         <li><input type="checkbox" id="item92" value="-3"> <label for="item92">Have you boosted someone or sold an account?</label></li>
         <li><input type="checkbox" id="item93" value="-2"> <label for="item93">Have you ever played League of Legends while under the influence of substances, such as being high or drunk?</label></li>
         <li><input type="checkbox" id="item94" value="-1"> <label for="item94">Have you ever cried while playing League of Legends, feeling emotional about a game or a situation that unfolded during a match?</label></li>
-        <li><input type="checkbox" id="item95" value="1"> <label for="item95">Have you ever completed an in-client event, such as Spirit Blossom, Soul Fighter or the Aurora/Ornn quest?</label></li>
-        <li><input type="checkbox" id="item110" value="2"> <label for="item110">Have you ever used the replay feature to analyze one of your games?</label></li>
       </ul><br><br>
       <h2>Select background and get your score</h2>
       <p>Please fill in your username or Riot ID (max. 22. letters), choose a background image and click `Show Results` to see your score. You can download your summary below.</p>
